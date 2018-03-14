@@ -12,12 +12,14 @@ if (isset($_POST['submit'])) {
 
         $sql = "SELECT * 
                 FROM users 
-                WHERE location = :location";
+                WHERE username
+                LIKE :username";
 
-        $location = $_POST['location'];
+        $username = $_POST['username'];
 
+        $keyword_to_search = '%' . $username . '%';
         $statement = $connection->prepare($sql);
-        $statement->bindParam(':location', $location, PDO::PARAM_STR);
+        $statement->bindParam(':username', $keyword_to_search, PDO::PARAM_STR);
         $statement->execute();
 
         $result = $statement->fetchAll();
@@ -55,6 +57,7 @@ if (isset($_POST['submit'])) {
                         <th>ID</th>
                         <th>Username</th>
                         <th>Password</th>
+                        <th>Location</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,6 +71,7 @@ if (isset($_POST['submit'])) {
                         <td><?php echo escape($row['id']); ?></td>
                         <td><?php echo escape($row['username']); ?></td>
                         <td><?php echo escape($row['password']); ?></td>
+                        <td><?php echo escape($row['location']); ?></td>
                     </tr>
 
                 <?php
@@ -84,18 +88,18 @@ if (isset($_POST['submit'])) {
             // No results
             ?>
 
-                <blockquote>No results find for <?php echo escape($_POST['location']); ?></blockquote>
+                <blockquote>No results find for <?php echo escape($_POST['username']); ?></blockquote>
 
             <?php
         }
     }
     ?>
 
-    <h2>Find user for location</h2>
+    <h2>Find user by username</h2>
 
     <form method="post">
-        <label for="location">Location</label>
-        <input type="text" name="location" id="location" required="required"> <br>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required="required"> <br>
         <input type="submit" name="submit" value="Submit">
     </form>
 

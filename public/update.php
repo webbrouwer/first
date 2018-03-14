@@ -40,6 +40,8 @@ if (isset($_POST['submit'])) {
         <li><a href="read.php">Read</a></li>
         <li><a href="update.php">Update</a></li>
         <li><a href="delete.php">Delete</a></li>
+        <li><a href="list.php">List</a></li>
+        <li><a href="search.php">Search</a></li>
     </ul>
 
     <h2>Update user</h2>
@@ -53,9 +55,9 @@ if (isset($_POST['submit'])) {
     ?>    
 
     <form method="post">
-        <label for="username">Username</label>
+        <label for="username">Update Username:</label>
         <input type="text" name="username" id="username" required="true">
-        <label for="id">ID</label>
+        <label for="id">Where ID is:</label>
         <input type="text" name="id" id="id" required="true">        
         <input type="submit" name="submit" value="submit">
     </form>
