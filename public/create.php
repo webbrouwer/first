@@ -48,6 +48,8 @@ if (isset($_POST['submit'])) {
         <li><a href="read.php">Read</a></li>
         <li><a href="update.php">Update</a></li>
         <li><a href="delete.php">Delete</a></li>
+        <li><a href="list.php">List</a></li>
+        <li><a href="search.php">Search</a></li>
     </ul>
 
     <?php 
@@ -65,7 +67,7 @@ if (isset($_POST['submit'])) {
         <input type="text" name="username" id="username" required="required">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required="required">
-        <label for="location">location</label>
+        <label for="location">Location</label>
         <input type="location" name="location" id="location" required="required">        
         <input type="submit" name="submit" value="Submit">
     </form>
