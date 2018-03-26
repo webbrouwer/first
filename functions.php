@@ -11,8 +11,7 @@ session_start();
     return htmlspecialchars($html, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
  }
 
-
- /**
+/**
  * Check if user is logged in
  *
  */
@@ -23,3 +22,5 @@ session_start();
          false;
      }
  }
+
+ 
