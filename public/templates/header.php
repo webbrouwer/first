@@ -2,6 +2,9 @@
 // Start Session
 session_start();
 
+// Include functions
+include_once '../functions.php';
+
 ?>
 
 <!doctype html>
@@ -21,6 +24,9 @@ session_start();
 
     <ul>
         <li><a href="index.php">Home</a></li>
+        <?php if(user_logged_in()){ ?>
+            <li><a href="profile.php">Profile</a></li>
+        <?php } ?>
         <li><a href="create.php">Create</a></li>
         <li><a href="read.php">Read</a></li>
         <li><a href="update.php">Update</a></li>
