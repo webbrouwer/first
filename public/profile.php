@@ -33,60 +33,19 @@ if (isset($_SESSION['id'])) {
 ?>
 
 <?php include "templates/header.php"; ?>
-    
-    <em>Create profilepage</em>
 
-    <?php $session_id = $_SESSION['id']; ?>
-    <?php echo $session_id; ?>
+    <?php // var_dump($result); ?>
+
 
 <?php 
-    if (isset($_POST['submit'])) {
         if ($result && $statement->rowCount() > 0) {
-            // Open table
-            ?>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Location</th>
-                    </tr>
-                </thead>
-                <tbody>
-    
-            <?php
-            foreach ($result as $row) {
-                // Table content
-                ?>
-
-                    <tr>
-                        <td><?php echo escape($row['id']); ?></td>
-                        <td><?php echo escape($row['username']); ?></td>
-                        <td><?php echo escape($row['password']); ?></td>
-                        <td><?php echo escape($row['location']); ?></td>
-                    </tr>
-
-                <?php
-            }
-            // Close table
-            ?>
-
-            </tbody>
-            </table>
-
-            <?php
-        }
-        else {
+            foreach ($result as $row) { ?>
+                The profile of: <b><?php echo $row['username']; ?></b>
+            <?php } 
+        } else {
             // No results
             ?>
-
                 <blockquote>No results find</blockquote>
-
-            <?php
-        }
-    }
-    ?>    
+        <?php } ?>
 
 <?php include "templates/footer.php"; ?>
