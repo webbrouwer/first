@@ -1,6 +1,7 @@
-<?php 
+<?php
 // Start Session
 session_start();
+
 ?>
 
 <!doctype html>
