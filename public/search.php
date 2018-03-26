@@ -1,5 +1,7 @@
 <?php 
 
+require_once("check-login.php");
+
 if (isset($_POST['submit'])) {
 
     try {

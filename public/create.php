@@ -1,5 +1,7 @@
 <?php
 
+require_once("check-login.php");
+
 /**
  * Use an HTML form to create a new entry in the
  * users table.
